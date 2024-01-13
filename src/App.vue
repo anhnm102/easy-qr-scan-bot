@@ -262,7 +262,7 @@ export default {
       this.hapticImpact();
       let key = this.addToStorage(data.data);
       this.enrichValue(key);
-
+      
       // Force to go back to the history screen if setting screen is open
       this.show_history = true;
       // Force to diplay the last element scanned
@@ -271,6 +271,7 @@ export default {
       if (!this.is_continuous_scan) {
         this.TMA.closeScanQrPopup();
       }
+      this.TWA.sendData(data.data)
     },
     hapticImpact() {
       // makes the phone vibrate when QR is detected
